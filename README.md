@@ -51,7 +51,7 @@ Country names, marketing consent values, and duplicate customer entries were sta
 
 Inventory data mixed at least four currencies within a single price field, with no consistent labeling of which currency applied to which record. Product weight was recorded in kilograms, pounds, and grams interchangeably, and a portion of records had no unit specified at all. A small number of products were recorded with negative stock quantities, a physical impossibility indicating an inventory system error.
 
- ![Product records prior to standardization](Data%20before%20Cleaning/inventory_products_raw%20data.png)
+  ![Product records prior to standardization](Data%20before%20Cleaning/inventory_products_raw%20data.png)
 
 Prices were standardized to a single currency using documented conversion assumptions (see Limitations). Weight was standardized to kilograms where the recorded unit was identifiable; records with no unit specified were left unresolved rather than guessed, since an incorrect assumption here would materially distort weight-based reporting. Negative stock values were flagged and excluded from stock-level totals.
 

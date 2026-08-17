@@ -33,7 +33,7 @@ Because these systems were never designed to share data, the combined export rev
 
 Each system recorded and formatted its data independently, with no shared standard for dates, currency, geography, or identifiers across departments.
 
-`![Customer records prior to standardization](screenshots/customers_before.png)`
+`![Customer records prior to standardization](screenshots/crm_customer_raw data.png)`
 
 ---
 

@@ -53,6 +53,8 @@ Inventory data mixed at least four currencies within a single price field, with 
 
 Prices were standardized to a single currency using documented conversion assumptions (see Limitations). Weight was standardized to kilograms where the recorded unit was identifiable; records with no unit specified were left unresolved rather than guessed, since an incorrect assumption here would materially distort weight-based reporting. Negative stock values were flagged and excluded from stock-level totals.
 
+![Standardized customer records with data quality flags](Data_screenshots_after_Cleaning/inventory_product_clean%20data.png)
+
 ### Orders
 
 Order dates were recorded in at least six different formats, consistent with the storefront system logging dates differently depending on channel (web, mobile, marketplace, phone). A small number of orders referenced customers that do not exist anywhere in the CRM — likely test transactions or customers whose CRM records were since deleted. A separate, more significant issue was only discovered while validating relationships between tables: a portion of order records shared duplicate order identifiers, which would have caused transactions to be miscounted or misattributed had it gone unaddressed.

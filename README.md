@@ -41,11 +41,11 @@ Each system recorded and formatted its data independently, with no shared standa
 
 ### Customer Records
 
-The CRM export contained customer records with inconsistent country naming, conflicting duplicate entries under the same customer ID, and a significant share of contact information that could not be relied upon. Age data included values that were not physically possible (negative ages, ages exceeding 100), pointing to either data entry error or an unvalidated form field. Marketing consent status was recorded in at least six different formats across the customer base.
+The CRM export contained customer records with inconsistent country naming, conflicting duplicate entries under the same customer ID, and a significant share of contact information that could not be relied upon. Age data included values that were not physically possible (negative ages, ages exceeding 150), pointing to either data entry error or an unvalidated form field. Marketing consent status was recorded in at least six different formats across the customer base.
 
 Country names, marketing consent values, and duplicate customer entries were standardized to a single consistent format, with the most recent record retained where duplicates existed. Email and phone numbers found to be structurally invalid were flagged for follow-up rather than altered, since correcting contact information without verified source data risks introducing new errors rather than resolving real ones.
 
-`![Standardized customer records with data quality flags](screenshots/customers_after.png)`
+`![Standardized customer records with data quality flags](Data_screenshots_after_Cleaning/crm_customer_clean%20data.png)`
 
 ### Product Records
 

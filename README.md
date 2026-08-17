@@ -33,8 +33,6 @@ Because these systems were never designed to share data, the combined export rev
 
 Each system recorded and formatted its data independently, with no shared standard for dates, currency, geography, or identifiers across departments.
 
- ![Customer records prior to standardization](Data%20before%20Cleaning/crm_customer_raw%20data.png)
-
 ---
 
 ## Analysis
@@ -42,6 +40,8 @@ Each system recorded and formatted its data independently, with no shared standa
 ### Customer Records
 
 The CRM export contained customer records with inconsistent country naming, conflicting duplicate entries under the same customer ID, and a significant share of contact information that could not be relied upon. Age data included values that were not physically possible (negative ages, ages exceeding 150), pointing to either data entry error or an unvalidated form field. Marketing consent status was recorded in at least six different formats across the customer base.
+
+ ![Customer records prior to standardization](Data%20before%20Cleaning/crm_customer_raw%20data.png)
 
 Country names, marketing consent values, and duplicate customer entries were standardized to a single consistent format, with the most recent record retained where duplicates existed. Email and phone numbers found to be structurally invalid were flagged for follow-up rather than altered, since correcting contact information without verified source data risks introducing new errors rather than resolving real ones.
 
@@ -51,6 +51,8 @@ Country names, marketing consent values, and duplicate customer entries were sta
 
 Inventory data mixed at least four currencies within a single price field, with no consistent labeling of which currency applied to which record. Product weight was recorded in kilograms, pounds, and grams interchangeably, and a portion of records had no unit specified at all. A small number of products were recorded with negative stock quantities, a physical impossibility indicating an inventory system error.
 
+ ![Customer records prior to standardization](Data%20before%20Cleaning/inventory_product_raw%20data.png)
+
 Prices were standardized to a single currency using documented conversion assumptions (see Limitations). Weight was standardized to kilograms where the recorded unit was identifiable; records with no unit specified were left unresolved rather than guessed, since an incorrect assumption here would materially distort weight-based reporting. Negative stock values were flagged and excluded from stock-level totals.
 
 ![Standardized customer records with data quality flags](Data_screenshots_after_Cleaning/inventory_product_clean%20data.png)
@@ -58,6 +60,8 @@ Prices were standardized to a single currency using documented conversion assump
 ### Orders
 
 Order dates were recorded in at least six different formats, consistent with the storefront system logging dates differently depending on channel (web, mobile, marketplace, phone). A small number of orders referenced customers that do not exist anywhere in the CRM — likely test transactions or customers whose CRM records were since deleted. A separate, more significant issue was only discovered while validating relationships between tables: a portion of order records shared duplicate order identifiers, which would have caused transactions to be miscounted or misattributed had it gone unaddressed.
+
+ ![Customer records prior to standardization](Data%20before%20Cleaning/orders_export_raw%20data.png)
 
 Dates were standardized to a single consistent format, with a small number of genuinely invalid entries (e.g., non-existent calendar dates) retained as unresolved rather than estimated. Orders referencing unrecognized customers were flagged rather than removed, since the transaction itself remains valid revenue regardless of whether the customer record can be matched. Duplicate order identifiers were resolved prior to finalizing the dataset.
 
@@ -67,11 +71,15 @@ Dates were standardized to a single consistent format, with a small number of ge
 
 Line-level transaction data included a small number of impossible quantities (negative or zero units sold) and one notable outlier quantity warranting manual review rather than automatic correction. Pricing fields mixed currency symbols directly into numeric values, and currency labeling was inconsistent across records. A number of line items referenced products that do not exist in the current inventory system, most likely discontinued or since-renamed products.
 
+ ![Customer records prior to standardization](Data%20before%20Cleaning/orderlines_export_raw%20data.png)
+
 Invalid quantities were flagged and excluded from quantity-based totals; the outlier was flagged for business review rather than treated as an error, since it may represent a legitimate bulk order. Pricing and currency fields were cleaned and standardized. Line-item totals were recalculated from verified quantity and price data rather than trusting the originally recorded total, which had been calculated upstream before any validation occurred.
 
 ### Returns
 
 Return records showed the same date-format inconsistency seen in Orders, along with refund amounts recorded as negative values and some prefixed with currency symbols. A number of returns referenced orders that do not exist in the order system. Most significantly, cross-referencing return dates against their associated order dates revealed a subset of returns recorded as occurring *before* the corresponding order was placed — a logical impossibility only visible once the two systems were compared directly.
+
+ ![Customer records prior to standardization](Data%20before%20Cleaning/returns_export_raw%20data.png)
 
 Refund amounts were corrected to reflect actual monetary value, and return reasons were standardized, with unspecified reasons labeled explicitly rather than left blank. Returns referencing unrecognized orders were flagged. The date-sequence issue was documented as a priority finding for the support systems team (see Recommendations).
 
@@ -80,6 +88,8 @@ Refund amounts were corrected to reflect actual monetary value, and return reaso
 ### Marketing Campaigns
 
 Campaign records mixed duration formats (days, weeks, and unlabeled numbers within the same field) and multiple currencies within the budget field, consistent with the same lack of shared standards seen elsewhere. A portion of impressions data was missing or marked as unavailable rather than recorded as zero.
+
+ ![Customer records prior to standardization](Data%20before%20Cleaning/campaign_export_raw%20data.png)
 
 Duration was standardized to a single day-count measure, and budget was standardized to a single currency. Missing impressions were preserved as unknown rather than assumed to be zero, since the two carry materially different meaning for campaign performance reporting.
 

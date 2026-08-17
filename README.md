@@ -45,7 +45,7 @@ The CRM export contained customer records with inconsistent country naming, conf
 
 Country names, marketing consent values, and duplicate customer entries were standardized to a single consistent format, with the most recent record retained where duplicates existed. Email and phone numbers found to be structurally invalid were flagged for follow-up rather than altered, since correcting contact information without verified source data risks introducing new errors rather than resolving real ones.
 
-`![Standardized customer records with data quality flags](Data_screenshots_after_Cleaning/crm_customer_clean%20data.png)`
+ ![Standardized customer records with data quality flags](Data_screenshots_after_Cleaning/crm_customer_clean%20data.png)
 
 ### Product Records
 

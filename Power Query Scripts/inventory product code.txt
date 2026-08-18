@@ -1,0 +1,34 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\olaiy\OneDrive\Documents\DATA ANALYSIS\Power Q cleaning\raw data\inventory products export.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"product_id", type text}, {"ProductName", type text}, {"Category ", type text}, {"Unit Cost", type text}, {"Unit Price", type text}, {"Weight", type text}, {"Stock Qty", Int64.Type}, {"Supplier Country", type text}, {"Discontinued", type text}, {"Random Internal Code XJ-99", type text}}),
+    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"ProductName", Text.Trim, type text}, {"Category ", Text.Trim, type text}}),
+    #"Capitalized Each Word" = Table.TransformColumns(#"Trimmed Text",{{"ProductName", Text.Proper, type text}, {"Category ", Text.Proper, type text}, {"Supplier Country", Text.Proper, type text}}),
+    #"Clean supplier country" = Table.AddColumn(#"Capitalized Each Word", "Supplier_country clean", each if [Supplier Country] = "Au" then "Australia" else if [Supplier Country] = "Bharat" or [Supplier Country] = "In" then "India" else if [Supplier Country] = "Br" or [Supplier Country] = "Brasil" then "Brazil" else if [Supplier Country] = "Ca" then "Canada" else if [Supplier Country] = "Fr" then "France" else if [Supplier Country] = "Za" or [Supplier Country] = "R.s.a" or [Supplier Country] = "S. Africa" or [Supplier Country] = "Rsa" then "South Africa" else if [Supplier Country] = "U.K." or [Supplier Country] = "Uk" or [Supplier Country] = "Britain" or [Supplier Country] = "England" then "United Kingdom" else if [Supplier Country] = "De" or [Supplier Country] = "Deutschland" then "Germany" else if [Supplier Country] = "Ng" or [Supplier Country] = "Nigéria" then "Nigeria" else if [Supplier Country] = "Us" or [Supplier Country] = "Usa" or [Supplier Country] = "U.S.A." or [Supplier Country] = "United States Of America" then "United States" else [Supplier Country]),
+    #"Removed messy country" = Table.RemoveColumns(#"Clean supplier country",{"Supplier Country"}),
+    #"Clean Discontinued" = Table.AddColumn(#"Removed messy country", "Discontinued_vlean", each if [Discontinued] = "0" or [Discontinued] = "NO" or [Discontinued] = "FALSE" then "No" else if [Discontinued] = "1" or [Discontinued] = "yes" or [Discontinued] = "TRUE" then "Yes" else if [Discontinued] = "" then "Unknown" else [Discontinued]),
+    #"Removed messy discomtinued" = Table.RemoveColumns(#"Clean Discontinued",{"Discontinued"}),
+    #"Stock_Qty flag" = Table.AddColumn(#"Removed messy discomtinued", "Stock_Qty Flag", each if [Stock Qty] < 0 then "Negative Stock - Invalid" else "Valid"),
+    #"Stock_Qty clean" = Table.AddColumn(#"Stock_Qty flag", "Stock_Qty clean", each if [Stock Qty] < 0 or [Stock Qty] = "null" then "null" else [Stock Qty]),
+    #"Removed messy Stock_Qty" = Table.RemoveColumns(#"Stock_Qty clean",{"Stock Qty"}),
+    #"Unit cost clean" = Table.AddColumn(#"Removed messy Stock_Qty", "Unit_cost clean", each if Text.Contains(Text.From([Unit Cost]), "cost:") then Number.FromText(Text.Remove(Text.From([Unit Cost]), {"c","o","s","t",":"}))
+else Number.From([Unit Cost])),
+    #"Removed messy Unit cost" = Table.RemoveColumns(#"Unit cost clean",{"Unit Cost"}),
+    #"Clean Unit price" = Table.AddColumn(#"Removed messy Unit cost", "Unit_Price clean", each if Text.Contains([Unit Price], "NGN") then Number.FromText(Text.Remove([Unit Price], {"N","G","A".."Z"," "})) / 1550
+else if Text.Contains([Unit Price], "€") then Number.FromText(Text.Remove([Unit Price], {"€"," "})) * 1.09
+else if Text.Contains([Unit Price], "$") then Number.FromText(Text.Remove([Unit Price], {"$"," "}))
+else if Text.Contains([Unit Price], "USD") then Number.FromText(Text.Remove([Unit Price], {"U","S","D"," "}))
+else Number.FromText(Text.From([Unit Price]))),
+    #"Removed messy Unit price" = Table.RemoveColumns(#"Clean Unit price",{"Unit Price"}),
+    #"Clean weight" = Table.AddColumn(#"Removed messy Unit price", "Weight clean", each if Text.Contains([Weight], "kg") then Number.FromText(Text.Remove([Weight], {"k","g"," "}))
+else if Text.Contains([Weight], "lbs") then Number.FromText(Text.Remove([Weight], {"l","b","s"," "})) * 0.4536
+else if Text.Contains([Weight], "g") then Number.FromText(Text.Remove([Weight], {"g"})) / 1000
+else null),
+    #"Weight Flag" = Table.AddColumn(#"Clean weight", "Weight flag", each if [Weight clean] = "null" then "Unit Not Specified" else "Converted to KG"),
+    #"Removed messy Weight" = Table.RemoveColumns(#"Weight Flag",{"Weight"}),
+    #"Removed Duplicates" = Table.Distinct(#"Removed messy Weight", {"product_id"}),
+    #"Renamed Columns" = Table.RenameColumns(#"Removed Duplicates",{{"product_id", "Product_id"}, {"Supplier_country clean", "Supplier_country"}, {"Discontinued_vlean", "Discontinued"}, {"Stock_Qty clean", "Stock_Qty"}, {"Unit_cost clean", "Unit_cost"}, {"Unit_Price clean", "Unit_Price"}, {"Weight clean", "Weight"}}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Renamed Columns",{"Product_id", "ProductName", "Category ", "Stock_Qty", "Stock_Qty Flag", "Unit_cost", "Unit_Price", "Weight", "Weight flag", "Supplier_country", "Discontinued", "Random Internal Code XJ-99"}),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Reordered Columns",{{"Stock_Qty", Int64.Type}, {"Unit_cost", type number}, {"Unit_Price", type number}, {"Weight", type number}, {"Weight flag", type text}, {"Supplier_country", type text}, {"Discontinued", type text}})
+in
+    #"Changed Type1"

@@ -1,0 +1,40 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\olaiy\OneDrive\Documents\DATA ANALYSIS\Power Q cleaning\raw data\crm customers export.csv"),[Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"CustomerID", type text}, {"Customer Name ", type text}, {"email_address", type text}, {"Phone Number", type text}, {"Country", type text}, {"Signup Date", type text}, {"Loyalty Tier", type text}, {"Age", Int64.Type}, {"Marketing Opt-In", type text}, {"Customer Segment", type text}, {"Notes (internal use only, ignore)", type text}}),
+    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"Customer Name ", Text.Trim, type text}, {"Loyalty Tier", Text.Trim, type text}, {"Country", Text.Trim, type text}, {"Customer Segment", Text.Trim, type text}}),
+    #"Clean country" = Table.AddColumn(#"Trimmed Text", "Country_clean", each if [Country] = "AU" then "Australia"
+else if [Country] = "australia" then "Australia"
+else if [Country] = "CA" then "Canada"
+else if [Country] = "canada" then "Canada"
+else if [Country] = "FR" then "France"
+else if [Country] = "france" then "France"
+else if [Country] = "US" or [Country] = "USA" or [Country] = "U.S.A." or [Country] = "United States of America" or [Country] = "united states" then "United States"
+else if [Country] = "UK" or [Country] = "U.K." or [Country] = "Britain" or [Country] = "England" then "United Kingdom"
+else if [Country] = "NG" or [Country] = "nigeria" or [Country] = "Nigéria" then "Nigeria"
+else if [Country] = "Deutschland" or [Country] = "DE" or [Country] = "germany" then "Germany"
+else if [Country] = "IN" or [Country] = "india" or [Country] = "Bharat" then "India"
+else if [Country] = "Brasil" or [Country] = "BR" then "Brazil"
+else if [Country] = "S. Africa" or [Country] = "ZA" or [Country] = "RSA" then "South Africa"
+else [Country]),
+    #"Removed messy country" = Table.RemoveColumns(#"Clean country",{"Country"}),
+    #"Clean signup date" = Table.AddColumn(#"Removed messy country", "Signup_date clean", each try Date.FromText([Signup Date], "en-GB") otherwise try Date.FromText([Signup Date], "en-US") otherwise null),
+    #"Removed messy signup date" = Table.RemoveColumns(#"Clean signup date",{"Signup Date"}),
+    #"Age flag" = Table.AddColumn(#"Removed messy signup date", "Age_flag", each if [Age] = null then "Missing Age" else if [Age] < 0 or [Age] > 150 then "Invalid Age" else "OK"),
+    #"Clean age" = Table.AddColumn(#"Age flag", "Age clean", each if [Age] = null then null else if [Age] < 0 or [Age] > 150 then null else [Age]),
+    #"Removed messy age" = Table.RemoveColumns(#"Clean age",{"Age"}),
+    #"Filtered Rows" = Table.SelectRows(#"Removed messy age", each true),
+    #"Marketing_Opt-in clean" = Table.AddColumn(#"Filtered Rows", "Marketing_Opt-in clean", each if [#"Marketing Opt-In"] = null or [#"Marketing Opt-In"] = "" then "Unknown" else if [#"Marketing Opt-In"] = "1" or [#"Marketing Opt-In"] = "YES" or [#"Marketing Opt-In"] = "Y" or [#"Marketing Opt-In"] = "TRUE" then "Yes" else if [#"Marketing Opt-In"] = "0" or [#"Marketing Opt-In"] = "N" or [#"Marketing Opt-In"] = "NO" or [#"Marketing Opt-In"] = "FALSE" then "No" else [#"Marketing Opt-In"]),
+    #"Removed messy Opt-in" = Table.RemoveColumns(#"Marketing_Opt-in clean",{"Marketing Opt-In"}),
+    #"Sorted Rows signup" = Table.Sort(#"Removed messy Opt-in",{{"Signup_date clean", Order.Descending}}),
+    #"Removed Duplicates CustomerID" = Table.Distinct(#"Sorted Rows signup", {"CustomerID"}),
+    #"Email flag" = Table.AddColumn(#"Removed Duplicates CustomerID", "email_flag", each if Text.Contains([email_address], "@") and Text.Contains([email_address], ".") then "Valid Format" else "Invalid Format"),
+    #"Phone flag" = Table.AddColumn(#"Email flag", "Phone flag", each if Text.Length(Text.Select([Phone Number], {"0".."9"})) > 6 then "Valid Format" else "Invalid Format"),
+    #"Capitalized Each Word" = Table.TransformColumns(#"Phone flag",{{"Phone flag", Text.Proper, type text}, {"Customer Name ", Text.Proper, type text}, {"Loyalty Tier", Text.Proper, type text}, {"Customer Segment", Text.Proper, type text}}),
+    #"Clean loyalty tier" = Table.AddColumn(#"Capitalized Each Word", "Loyalty_tier clean", each if [Loyalty Tier] = "" then "Unknown" else [Loyalty Tier]),
+    #"Removed messy loyalty tier" = Table.RemoveColumns(#"Clean loyalty tier",{"Loyalty Tier"}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Removed messy loyalty tier",{"CustomerID", "Customer Name ", "email_address", "email_flag", "Phone Number", "Phone flag", "Signup_date clean", "Age clean", "Age_flag", "Country_clean", "Marketing_Opt-in clean", "Loyalty_tier clean", "Customer Segment", "Notes (internal use only, ignore)"}),
+    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Signup_date clean", "Signup_date"}, {"Age clean", "Age"}, {"Country_clean", "Country"}, {"Marketing_Opt-in clean", "Marketing_Opt-in"}, {"Loyalty_tier clean", "Loyalty_tier"}}),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"email_flag", type text}, {"Signup_date", type date}, {"Age", Int64.Type}, {"Age_flag", type text}, {"Country", type text}, {"Marketing_Opt-in", type text}, {"Loyalty_tier", type text}})
+in
+    #"Changed Type1"

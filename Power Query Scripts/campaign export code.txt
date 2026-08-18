@@ -1,0 +1,23 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\olaiy\OneDrive\Documents\DATA ANALYSIS\Power Q cleaning\raw data\marketing campaigns export.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"CampaignID", type text}, {"Campaign Name", type text}, {"Channel Type", type text}, {"Start Date", type text}, {"Duration", type text}, {"Budget", type text}, {"Target Country", type text}, {"Impressions", type text}, {"Clicks", Int64.Type}, {"Linked Coupon", type text}}),
+    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"Campaign Name", Text.Trim, type text}, {"Channel Type", Text.Trim, type text}, {"Target Country", Text.Trim, type text}, {"Linked Coupon", Text.Trim, type text}}),
+    #"Capitalized Each Word" = Table.TransformColumns(#"Trimmed Text",{{"Campaign Name", Text.Proper, type text}, {"Channel Type", Text.Proper, type text}, {"Target Country", Text.Proper, type text}, {"Linked Coupon", Text.Proper, type text}}),
+    #"Clean Start_Date" = Table.AddColumn(#"Capitalized Each Word", "Start_Date Clean", each try Date.FromText([Start Date], "en-GB") otherwise try Date.FromText([Start Date], "en-US") otherwise null),
+    #"Removed mess Start_Date" = Table.RemoveColumns(#"Clean Start_Date",{"Start Date"}),
+    #"Clean Duration_Days" = Table.AddColumn(#"Removed mess Start_Date", "Duration_Days", each if Text.Contains([Duration], "week") then Number.FromText(Text.BeforeDelimiter([Duration], " ")) * 7 else if Text.Contains([Duration], "day") then Number.FromText(Text.BeforeDelimiter([Duration], " ")) else Number.FromText([Duration])),
+    #"Removed messy Duration" = Table.RemoveColumns(#"Clean Duration_Days",{"Duration"}),
+    #"Clean Budget_USD" = Table.AddColumn(#"Removed messy Duration", "Budget_USD ", each if Text.Contains([Budget], "NGN") then Number.FromText(Text.Remove([Budget], {"N", "G", "A".."Z"," "})) / 1550
+else if Text.Contains([Budget], "$") then Number.FromText(Text.Remove([Budget], {"$", " "})) else Number.FromText(Text.From([Budget]))),
+    #"Removed Budget" = Table.RemoveColumns(#"Clean Budget_USD",{"Budget"}),
+    #"Replaced Value" = Table.ReplaceValue(#"Removed Budget","","No Coupon",Replacer.ReplaceValue,{"Linked Coupon"}),
+    #"Uppercased Text" = Table.TransformColumns(#"Replaced Value",{{"Linked Coupon", Text.Upper, type text}}),
+    #"Clean Impressions" = Table.AddColumn(#"Uppercased Text", "Impressions Clean", each if [Impressions] = "" or [Impressions] = "N/A" then "null" else [Impressions]),
+    #"Removed messy Impressions" = Table.RemoveColumns(#"Clean Impressions",{"Impressions"}),
+    #"Renamed Columns" = Table.RenameColumns(#"Removed messy Impressions",{{"Target Country", "Supplier Country"}, {"Start_Date Clean", "Start_Date"}, {"Impressions Clean", "Impressions"}}),
+    #"Clean Target Country" = Table.AddColumn(#"Renamed Columns", "Target Country", each if [Supplier Country] = "Au" then "Australia" else if [Supplier Country] = "Bharat" or [Supplier Country] = "In" then "India" else if [Supplier Country] = "Br" or [Supplier Country] = "Brasil" then "Brazil" else if [Supplier Country] = "Ca" then "Canada" else if [Supplier Country] = "Fr" then "France" else if [Supplier Country] = "Za" or [Supplier Country] = "R.s.a" or [Supplier Country] = "S. Africa" or [Supplier Country] = "Rsa" then "South Africa" else if [Supplier Country] = "U.K." or [Supplier Country] = "Uk" or [Supplier Country] = "Britain" or [Supplier Country] = "England" then "United Kingdom" else if [Supplier Country] = "De" or [Supplier Country] = "Deutschland" then "Germany" else if [Supplier Country] = "Ng" or [Supplier Country] = "Nigéria" then "Nigeria" else if [Supplier Country] = "Us" or [Supplier Country] = "Usa" or [Supplier Country] = "U.S.A." or [Supplier Country] = "United States Of America" then "United States" else [Supplier Country]),
+    #"Removed Target Country" = Table.RemoveColumns(#"Clean Target Country",{"Supplier Country"}),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Target Country",{{"Start_Date", type date}, {"Duration_Days", Int64.Type}, {"Budget_USD ", type number}, {"Impressions", Int64.Type}, {"Target Country", type text}})
+in
+    #"Changed Type1"

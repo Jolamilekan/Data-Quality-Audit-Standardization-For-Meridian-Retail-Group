@@ -1,0 +1,22 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\olaiy\OneDrive\Documents\DATA ANALYSIS\Power Q cleaning\raw data\webplatform orders export.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}}),
+    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order_ID", type text}, {"CustomerID", type text}, {"OrderDate", type text}, {"Sales Channel", type text}, {"Payment Method", type text}, {"Order Status", type text}, {"Shipping Country", type text}, {"Coupon Code", type text}, {"Order Total (raw)", type text}}),
+    #"Removed Columns" = Table.RemoveColumns(#"Changed Type1",{"Order Total (raw)"}),
+    #"Trimmed Text" = Table.TransformColumns(#"Removed Columns",{{"Sales Channel", Text.Trim, type text}, {"Payment Method", Text.Trim, type text}, {"Order Status", Text.Trim, type text}, {"Shipping Country", Text.Trim, type text}, {"Coupon Code", Text.Trim, type text}}),
+    #"Capitalized Each Word" = Table.TransformColumns(#"Trimmed Text",{{"Sales Channel", Text.Proper, type text}, {"Payment Method", Text.Proper, type text}, {"Order Status", Text.Proper, type text}, {"Shipping Country", Text.Proper, type text}, {"Coupon Code", Text.Proper, type text}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Capitalized Each Word",{{"Shipping Country", "Supplier Country"}}),
+    #"Clean Shipping country" = Table.AddColumn(#"Renamed Columns", "Supplier country clean", each if [Supplier Country] = "Au" then "Australia" else if [Supplier Country] = "Bharat" or [Supplier Country] = "In" then "India" else if [Supplier Country] = "Br" or [Supplier Country] = "Brasil" then "Brazil" else if [Supplier Country] = "Ca" then "Canada" else if [Supplier Country] = "Fr" then "France" else if [Supplier Country] = "Za" or [Supplier Country] = "R.s.a" or [Supplier Country] = "S. Africa" or [Supplier Country] = "Rsa" then "South Africa" else if [Supplier Country] = "U.K." or [Supplier Country] = "Uk" or [Supplier Country] = "Britain" or [Supplier Country] = "England" then "United Kingdom" else if [Supplier Country] = "De" or [Supplier Country] = "Deutschland" then "Germany" else if [Supplier Country] = "Ng" or [Supplier Country] = "Nigéria" then "Nigeria" else if [Supplier Country] = "Us" or [Supplier Country] = "Usa" or [Supplier Country] = "U.S.A." or [Supplier Country] = "United States Of America" then "United States" else [Supplier Country]),
+    #"Removed messy Shipping Country" = Table.RemoveColumns(#"Clean Shipping country",{"Supplier Country"}),
+    #"Clean OrderDate" = Table.AddColumn(#"Removed messy Shipping Country", "Order Date clean", each try Date.FromText([OrderDate], "en-GB") otherwise try Date.FromText([OrderDate], "en-US") otherwise null),
+    #"Removed OrderDate" = Table.RemoveColumns(#"Clean OrderDate",{"OrderDate"}),
+    #"Clean Coupon Code" = Table.AddColumn(#"Removed OrderDate", "Coupon Clean", each if [Coupon Code] = "" or [Coupon Code] = "N/A"  or [Coupon Code] = "None" then "No Coupon Code" else [Coupon Code]),
+    #"Removed messy Coupon Code" = Table.RemoveColumns(#"Clean Coupon Code",{"Coupon Code"}),
+    #"Merged Queries" = Table.NestedJoin(#"Removed messy Coupon Code", {"CustomerID"}, crm_customer, {"CustomerID"}, "crm_customer", JoinKind.LeftOuter),
+    #"Expanded crm_customer" = Table.ExpandTableColumn(#"Merged Queries", "crm_customer", {"Country"}, {"Country"}),
+    #"Customer Matched Status" = Table.AddColumn(#"Expanded crm_customer", "Customer_Match Status", each if [Country] is null then "Unknown Customer" else "Matched"),
+    #"Renamed Columns1" = Table.RenameColumns(#"Customer Matched Status",{{"Coupon Clean", "Coupon"}, {"Order Date clean", "Order Date"}, {"Supplier country clean", "Shipping Country"}}),
+    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Shipping Country", type text}, {"Order Date", type date}, {"Coupon", type text}, {"Customer_Match Status", type text}})
+in
+    #"Changed Type2"

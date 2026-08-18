@@ -1,0 +1,31 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\olaiy\OneDrive\Documents\DATA ANALYSIS\Power Q cleaning\raw data\customerservice returns export.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ReturnID", type text}, {"Order_ID ", type text}, {"Return Date", type text}, {"Reason", type text}, {"Refund Amount", type number}, {"Restocked?", type text}}),
+    #"Clean Return Date" = Table.AddColumn(#"Changed Type", "Return_Date Clean", each try Date.FromText([Return Date], "en-GB") otherwise try Date.FromText([Return Date], "en-US") otherwise null),
+    #"Removed messy Return date" = Table.RemoveColumns(#"Clean Return Date",{"Return Date"}),
+    #"Clean Reason" = Table.AddColumn(#"Removed messy Return date", "Reasons Clean", each if [Reason] = "" then "Not Specified" else [Reason]),
+    #"Removed messy Reason" = Table.RemoveColumns(#"Clean Reason",{"Reason"}),
+    #"Clean Restocked?" = Table.AddColumn(#"Removed messy Reason", "Restocked? clean", each if [#"Restocked?"] = "" or [#"Restocked?"] = "unknown" then "Unknown" else if [#"Restocked?"] = "N" or [#"Restocked?"] = "No" then "No" else if [#"Restocked?"] = "Y" then "Yes" else [#"Restocked?"]),
+    #"Removed messy Restocked?" = Table.RemoveColumns(#"Clean Restocked?",{"Restocked?"}),
+    #"Clean Refund_Amount" = Table.AddColumn(#"Removed messy Restocked?", "Refund Amount Clean", each let
+    textVal = Text.From([Refund Amount]),
+    stripped = Text.Remove(textVal, {"$"}),
+    asNumber = Number.FromText(stripped)
+in
+    Number.Abs(asNumber)),
+    #"Removed messy refund_amount" = Table.RemoveColumns(#"Clean Refund_Amount",{"Refund Amount"}),
+    #"Trimmed Text" = Table.TransformColumns(#"Removed messy refund_amount",{{"Reasons Clean", Text.Trim, type text}, {"Restocked? clean", Text.Trim, type text}}),
+    #"Capitalized Each Word" = Table.TransformColumns(#"Trimmed Text",{{"Reasons Clean", Text.Proper, type text}, {"Restocked? clean", Text.Proper, type text}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Capitalized Each Word",{{"Refund Amount Clean", "Refund_ Amount"}, {"Restocked? clean", "Restocked?"}, {"Reasons Clean", "Reasons"}, {"Return_Date Clean", "Return_Date"}}),
+    #"Flag Orphan OrderID" = Table.NestedJoin(#"Renamed Columns", {"Order_ID "}, orders_export, {"Order_ID"}, "orders_export", JoinKind.LeftOuter),
+    #"Expanded orders_export" = Table.ExpandTableColumn(#"Flag Orphan OrderID", "orders_export", {"Order Date"}, {"Order Date"}),
+    #"Added Custom" = Table.AddColumn(#"Expanded orders_export", "Return_Match Status", each if [Order Date] is null then "Unknown Order" else "Matched"),
+    #"Removed Duplicates" = Table.Distinct(#"Added Custom", {"ReturnID"}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Removed Duplicates",{"ReturnID", "Order_ID ", "Order Date", "Return_Date", "Refund_ Amount", "Reasons", "Restocked?", "Return_Match Status"}),
+    #"Date Flag" = Table.AddColumn(#"Reordered Columns", "Date_Flag", each if [Order Date] = null then "No Order Match"
+else if [Return_Date] = null then "No Return Date"
+else if [Return_Date] < [Order Date] then "Invalid - Return Before Order" else "OK"),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Date Flag",{{"Return_Date", type date}, {"Refund_ Amount", type number}, {"Reasons", type text}, {"Return_Match Status", type text}, {"Date_Flag", type text}})
+in
+    #"Changed Type1"

@@ -95,7 +95,7 @@ Campaign records mixed duration formats (days, weeks, and unlabeled numbers with
 
 Duration was standardized to a single day-count measure, and budget was standardized to a single currency. Missing impressions were preserved as unknown rather than assumed to be zero, since the two carry materially different meaning for campaign performance reporting.
 
-![Standardized campaign_export records](Data_screenshots_after_Cleaning/campaign_export_clean%20data.png)
+![Standardized campaign_export records](Data_screenshots_after_Cleaning/campaign_exports_clean%20data.png)
 
 ## Executive Summary
 

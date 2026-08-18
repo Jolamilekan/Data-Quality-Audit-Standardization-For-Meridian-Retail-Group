@@ -1,0 +1,41 @@
+CampaignID,Campaign Name,Channel Type,Start Date,Duration,Budget,Target Country,Impressions,Clicks,Linked Coupon
+CMP-001,Summer Launch 2024,Email,07/29/2024,19,27249.53,CA,N/A,7415,save10
+CMP-002,Spring Clearance 2024,Display Ads,27/12/2025,3 weeks,NGN61308452.0,DE,,816,save10
+CMP-003,Winter Sale 2026,Social Media,"June 28, 2025",55,$11730.15,Nigéria,N/A,2694,SAVE10
+CMP-004,Summer Promo 2025,SMS,2024-09-09,1 weeks,$11230.68,Nigeria,264457,3498,save10
+CMP-005,Winter Clearance 2026,Display Ads,04/04/2025,34,NGN14342113.0,Germany,11670,214,
+CMP-006,Flash Launch 2026,Display Ads,2024-06-22,38,$10775.49,U.K.,,19981,
+CMP-007,Summer Launch 2025,Display Ads,30-Nov-2025,30,$32034.75,U.S.A.,N/A,6680,SAVE10
+CMP-008,Spring Launch 2026,SMS,2026-01-18,24,$28433.39,nigeria,,19346,SAVE10
+CMP-009,Winter Clearance 2026,email,2024/08/03,4 weeks,38009.49,Brazil,,16726,save10
+CMP-010,Holiday Launch 2025  ,email,2024/01/22,1 weeks,NGN52728475.0,Germany,112659,14139,WELCOME2025
+CMP-011,Winter Launch 2024,SMS,"October 18, 2025",28 days,1804.16,france,N/A,11509,
+CMP-012,Summer  Promo 2026,Email,28-Aug-2024,6,$10901.09,australia,N/A,17278,save10
+CMP-013,Spring Sale 2025,email,04/23/2025,4 days,NGN49745465.0,Bharat,,1879,
+CMP-014,Winter Sale 2025,Influencer,"April 03, 2024",52 days,24315.21,Brasil,N/A,5568,WELCOME2025
+CMP-015,Winter Promo 2025,email,12/20/2024,4 weeks,$34533.01,Australia,,7252,
+CMP-016,Holiday Clearance 2025  ,email,2024-07-14,52 days,$11633.68,australia,N/A,14700,
+CMP-017,Flash Sale 2025,Email,05-Feb-2025,7 weeks,NGN16530484.0,Deutschland,,16590,SAVE10
+CMP-018,Flash Launch 2026,email,11/11/2025,48 days,$1538.28,Australia,,8232,
+CMP-019,Spring Promo 2024  ,Display Ads,2024-10-22,34 days,4027.66,india,N/A,13533,WELCOME2025
+CMP-020,Summer Sale 2024,SMS,12-Aug-2025,49 days,$18628.71,united states,N/A,4003,save10
+CMP-021,Spring Sale 2026,Display Ads,2026-03-06,6 weeks,$36443.12,Canada,,8074,WELCOME2025
+CMP-022,Winter  Launch 2024,SMS,04-Sep-2024,50 days,NGN24353032.0,nigeria,237990,7111,save10
+CMP-023,Summer Clearance 2024,Email,"April 08, 2025",7 weeks,NGN70102634.0,Canada,,17125,SAVE10
+CMP-024,Flash Sale 2025,SMS,"September 16, 2025",30 days,NGN71408855.0,USA,N/A,3473,save10
+CMP-025,Winter  Clearance 2025,Influencer,11-Aug-2025,30 days,23247.02,Britain,,1141,SAVE10
+CMP-026, Winter Clearance 2026,Display Ads,04/12/2025,16 days,$40895.26,DE,N/A,6739,
+CMP-027,Winter Promo 2024,Search Ads,15/07/2024,1 weeks,NGN26651469.0,Nigeria,306913,9515,save10
+CMP-028,Flash Sale 2026,SMS,2024/06/20,46 days,39253.52,India,N/A,18143,
+CMP-029,Spring Sale 2026  ,email,2025-04-27,16,21797.75,Australia,N/A,11979,
+CMP-030,Winter Launch 2025,Social Media,30-Jan-2025,38,$15416.87,United States of America,15606,12554,WELCOME2025
+CMP-031,Spring  Sale 2025,Social Media,16-May-2026,46 days,17226.96,NG,,18243,WELCOME2025
+CMP-032,Winter Clearance 2024,SOCIAL MEDIA,2024-04-13,24,6956.27,United States of America,N/A,739,
+CMP-033, Holiday Promo 2026,SOCIAL MEDIA,11/11/2024,5 weeks,24189.33,IN,,12325,
+CMP-034,Summer Clearance 2024,Influencer,10/18/2024,8 weeks,28439.53,BR,,18015,
+CMP-035,Winter Promo 2024,Display Ads,2024/11/22,3,28312.49,nigeria,N/A,3057,WELCOME2025
+CMP-036,Winter Promo 2025,Email,"May 13, 2024",52 days,NGN13007915.0,DE,447442,9108,WELCOME2025
+CMP-037,Flash Promo 2026,Influencer,2024/07/22,31 days,11400.3,DE,,9844,SAVE10
+CMP-038, Spring Promo 2025  ,Email,11/11/2025,5 weeks,NGN34541689.0,France,56327,7181,
+CMP-039, Flash Sale 2025,Social Media,2024/11/07,48,NGN56207581.0,US,,12586,
+CMP-040,Holiday Sale 2024  ,SMS,2024-01-30,5 weeks,$29904.87,US,N/A,51,WELCOME2025

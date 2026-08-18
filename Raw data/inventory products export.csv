@@ -1,0 +1,251 @@
+product_id,ProductName,Category ,Unit Cost,Unit Price,Weight,Stock Qty,Supplier Country,Discontinued,Random Internal Code XJ-99
+PRD2001,puzzle  1000pc,Toys,98.99,$199.24,4.03,176,U.K.,0,98C72D
+PRD2002,Fiction oNvel,Books,185.73,€278.82,247g,203,BR,No,BDF7B8
+PRD2003,Water Bottle (New!),Sports & Outdoors,152.14,€306.56,0.79,295,U.K.,No,509EFD
+PRD2004,Denim Jacket,Apparel,cost:226.31,352.25,188g,166,Germany,NO,9EB28F
+PRD2005, Green Tea Pack,Grocery,283.26,456.34,1.82,-18,India,Yes,4C100F
+PRD2006,laptop stand  ,Electronics,48.16,112.89,0.96 kg,466,australia,0,FB50E1
+PRD2007,Protein Bar Box,Grocery,71.66,112.5,427g,-19,AU,No,459BBA
+PRD2008,Water Bottle,Sports & Outdoors,272.3,438.46,4.99 kg,188,France,Yes,644CCB
+PRD2009,Sel-fHelp Guide,Books,54.74,92.09,4.77,94,Britain,0,25E0G1
+PRD2010,Cookbook (New!),Books,171.27,$343.5,0.26,443,Brazil,Yes,FA4HB3
+PRD2011,Green Tea Pack (New!)  ,Grocery,81.4,185.88,481g,204,Britain,Yes,33D4AE
+PRD2012,Shampoo,Beauty,174.94,268.58,77g,365,Deutschland,yes,5AD5AF
+PRD2013,Puzzle 1000pc,Toys,262.07,€414.31,0.8,327,UK,Yes,4G87C3
+PRD2014,Smartphone Case,Electronics,296.16,705.91,3.93,299,india,Yes,FEH116
+PRD2015, Smartphone Case,Electronics,220.16,340.25,4.41 kg,91,ZA,,HAB4AD
+PRD2016,Water Bottel,Sports & Outdoors,58.88,129.9,9.3 lbs,294,South Africa,yes,261B09
+PRD2017,Running Shorts,APPAREL,44.56,NGN 159402.0,4.23,11,U.K.,Yes,FCHEBG
+PRD2018,Sneakers  ,Footwear,95.46,135.76,3.47,-1,Australia,No,4910AD
+PRD2019,Desk Orgainzer,Office Supplies,95.82,238.6,403g,408,Australia,No,300937
+PRD2020,Face Moisturizer,Beauty,cost:221.23,532.83,5.4 lbs,149,UK,No,B1F3H2
+PRD2021,Hoodie  ,Apparel,68.38,121.76,351g,480,Britain,0,280FFB
+PRD2022, Fiction Novel,Books,122.13,258.24,128g,-1,AU,NO,5B82FC
+PRD2023,Self-Help Guide (New!),Books,152.51,336.56,410g,163,ZA,Yes,33F7FH
+PRD2024, Cutlery Set,Home & Kitchen,120.74,€240.81,4.26 kg,452,Britain,0,388GG0
+PRD2025,Coffee Maker,Home & Kitchen,231.99,329.65,1.58,99,France,Yes,BF5C19
+PRD2014,Fiction Novel,Books,281.58,$428.1,1.27 kg,253,DE,0,256G41
+PRD2027,SUNSCREEN  SPF50,Beauty,70.26,93.93,4.7 kg,150,United States,1,31BAEH
+PRD2028,Lipstick  Set  ,Beauty,271.56,469.95,344g,105,Brazil,,8A7F1B
+PRD2029,Running Shorts,Apparel,cost:67.76,136.76,3.8 kg,133,Canada,Yes,BA05GA
+PRD2030,Notebook Set,office supplies,285.68,$488.86,2.0,297,nigeria,Yes,7A7G98
+PRD2031, Leather Boots,Footwear,276.82,536.3,3.96 kg,219,germany,,045BCC
+PRD2032,Board Game,Toys,259.72,589.69,6.8 lbs,452,IN,NO,8157C5
+PRD2033,Sandals,Footwear,85.15,156.95,3.8 kg,-14,United Kingdom,yes,GAG92E
+PRD2034,Shmapoo,Beauty,174.66,353.99,422g,39,U.K.,yes,D4BH9A
+PRD2035,Green Tea Pack,Grocery,206.58,427.89 USD,7.2 lbs,-11,Australia,NO,G4BC81
+PRD2036,Notebook Set (New!),Office Supplies,210.73,333.34,1.08 kg,34,united states,yes,BB783B
+PRD2037,Lipstick  Set,Beauty,290.57,629.42,8.1 lbs,331,Brazil,yes,502143
+PRD2038,Hoodie,Apparel,139.11,220.56,362g,435,Nigéria,1,DF2E41
+PRD2039,Organic  Honey  ,Grocery,75.74,102.82,4.56,423,FR,NO,H40E92
+PRD2040,Protein Bar Box  ,Grocery,149.66,320.76,7.9 lbs,157,United Kingdom,0,885DCA
+PRD2041,DUMBBELL SET (NEW!),Sports & Outdoors,276.54,478.1,0.66,348,CA,0,6AD846
+PRD2042,Leather Boots  ,Footwear,5.41,$10.03,1.29,494,Brazil,yes,FEG9F6
+PRD2043,olive oil 1l,Grocery,299.43,648.81,2.15,466,FR,yes,BE3HCB
+PRD2044,Cookbook,BOOKS,179.13,301.3,8.2 lbs,155,germany,1,F1G1E1
+PRD2045,Green  Tea Pack,Grocery,218.02,$328.71,0.56 kg,479,UK,No,EGE9A1
+PRD2046,Children's  Storybook,BOOKS,224.87,€408.42,4.72 kg,217,Deutschland,No,13B236
+PRD2047,Green Tea Pack  ,Grocery,182.23,365.76,3.84 kg,-10,nigeria,No,38E7F9
+PRD2048,Running Shorts,Apparel,275.6,632.76,2.66 kg,313,UK,Yes,CH32DA
+PRD2049,Blneder,Home & Kitchen,165.91,305.81,312g,77,France,Yes,0E30HA
+PRD2050,notebook set (new!),Office Supplies,229.19,NGN 771280.0,1.05,114,US,NO,43G10A
+PRD2051,Laptop  Stadn,Electronics,235.67,NGN 634353.0,4.22 kg,219,france,1,8F9A00
+PRD2052,Dumbbell Kit,SPORTS & OUTDOORS,51.0,69.69,3.86,103,Nigeria,NO,19D403
+PRD2053,Cutlery Set,Home & Kitchen,cost:208.13,310.27,1.97,27,Brasil,0,083AH8
+PRD2054,RC Car,Toys,220.37,472.74,1.42 kg,243,AU,No,564H7G
+PRD2055,Self-Help Guide,books,250.22,540.14,3.89 kg,203,france,0,CG0428
+PRD2056,Cookbook (New!),Books,219.73,414.36,4.18 kg,134,NG,yes,6E7DBE
+PRD2057,Yoga Mat,Sports & Outdoors,256.42,NGN 730128.0,1.3 lbs,270,Deutschland,1,AA5FCB
+PRD2058,Blender,Home & Kitchen,180.18,$259.67,0.38 kg,38,germany,yes,AD827D
+PRD2059,Sefl-Help Guide  ,Books,271.23,466.67,340g,432,Nigéria,NO,GG03BA
+PRD2060,Dumbbell Set (New!)  ,sports & outdoors,cost:41.35,57.2,161g,139,Canada,0,2306BG
+PRD2061,Non-Stick Pan,home & kitchen,23.41,52.76,310g,123,UK,1,A50690
+PRD2062,Smartphoen Case,Electronics,134.36,315.24,6.3 lbs,-20,US,,FB1HHH
+PRD2063,Face Moisturizer,beauty,248.49,$349.89,6.3 lbs,-6,United States,yes,02G0CB
+PRD2064,Cookbook,Books,232.15,503.47 USD,5.8 lbs,181,Nigéria,No,GC43BA
+PRD2065,Dumbbell Set,Sports & Outdoors,207.62,482.25,3.47,79,ZA,yes,F852H4
+PRD2066,Shampoo,Beauty,2.38,4.7,5.8 lbs,396,AU,0,A2A6CD
+PRD2067,Ballpoint  Pens 1(2pk),Office Supplies,226.26,377.44,241g,79,South Africa,No,77G61D
+PRD2068,Lipstick  Set,Beauty,248.07,507.65,3.86 kg,229,S. Africa,1,2D9EFF
+PRD2069,power bank,Electronics,128.33,203.73,214g,481,S. Africa,0,BDC653
+PRD2070,Leather Boots,Footwear,164.09,327.75,1.8 kg,205,USA,No,D6H2DE
+PRD2071, fiction novel,Books,163.16,338.84,4.37 kg,177,United States,1,C746E2
+PRD2072,Stapler (New!),OFFICE SUPPLIES,263.24,484.37,5.8 lbs,74,CA,1,A190H1
+PRD2073,Water Bottel,Sports & Outdoors,183.1,335.81,8.5 lbs,424,United States,NO,G3217E
+PRD2004, RUNNING SHOES,FOOTWEAR,297.45,576.37,484g,3,USA,No,A55C4F
+PRD2075,stapler (new!),Office Supplies,64.45,156.07,6.9 lbs,370,Australia,,43A9C5
+PRD2076, Board Game,Toys,32.74,58.88,237g,449,US,No,6F2E5C
+PRD2077,Desk Organizer,Office Supplies,cost:109.56,267.04,380g,353,nigeria,NO,3EGB8H
+PRD2078,Puzzle 1000pc (New!)  ,Toys,35.09,50.98,186g,227,USA,No,275E61
+PRD2079,SMARTPHONE CASE,Electronics,cost:295.22,588.06,3.1 lbs,-18,United Kingdom,No,98DF15
+PRD2080,Non-Stick  Pan,Home & Kitchen,194.75,288.92,4.0 lbs,246,United States of America,Yes,5F9B7F
+PRD2081,Sunscreen SPF05,Beauty,274.82,€417.56,0.53,389,RSA,NO,85F838
+PRD2082,Sunscreen SPF50,Beauty,87.7,131.22,275g,383,france,,BCG312
+PRD2029,Power Bank,Electronics,10.76,22.19,58g,353,Britain,yes,B4B620
+PRD2084,senakers,Footwear,181.76,383.14,184g,274,South Africa,yes,D78HFF
+PRD2085,Sandals,Footwear,48.79,$74.12,2.1 lbs,363,USA,,0GGBB5
+PRD2086,Fiction  Novel,Books,137.12,294.03,418g,207,Canada,NO,B31BB1
+PRD2087,Desk Organizer  ,Office Supplies,215.88,312.82,5.6 lbs,-16,Canada,0,2E831C
+PRD2088,PowerB  ank  ,Electronics,196.02,440.46,497g,-18,united states,0,0DDHBF
+PRD2089,Fiction Novel,Books,cost:151.87,379.45,2.27 kg,164,united states,Yes,26BG4E
+PRD2090,denim jacket,APPAREL,44.2,102.14,2.91,130,United States,0,EG5269
+PRD2091,Sandals,Footwear,251.48,€379.56,363g,12,canada,yes,B8215G
+PRD2092,Protein BarB ox,Grocery,230.74,391.16,9.0 lbs,199,England,NO,452942
+PRD2093,Power Bank,Electronics,155.46,381.14,3.29,120,IN,Yes,877GH2
+PRD2094,Fcition Novel,Books,238.04,469.59,8.9 lbs,485,united states,0,29GH2B
+PRD2095,Cookbook,BOOKS,cost:166.72,$408.52,4.32,308,U.K.,yes,38C486
+PRD2096,Lapto pStand,Electronics,cost:257.97,$371.92,3.78 kg,380,Canada,NO,F205F7
+PRD2097,Running Shoes (New!),Footwear,233.35,459.77,391g,6,France,NO,0B276B
+PRD2098,Olive Oil 1L,Grocery,281.13,424.73,94g,231,Germany,,GFEFFB
+PRD2099,Running Shorts (New!),Apparel,46.2,105.77,4.54,274,nigeria,Yes,H3GE38
+PRD2100,Rnuning  Shorts,Apparel,37.29,$65.94,4.39,348,germany,0,B8A2BH
+PRD2101, Lipsitck Kit,Beauty,23.4,54.02,6.8 lbs,-14,AU,0,769804
+PRD2102,RC  Car,toys,109.31,262.69,0.43 kg,1,CA,Yes,EE41E3
+PRD2103,Notebook Set,Office Supplies,241.38,360.97,6.0 lbs,292,IN,Yes,739882
+PRD2104,Air Fryer,Home & Kitchen,104.65,194.95,8.5 lbs,431,U.S.A.,No,B6C69F
+PRD2105,ORGANIC HNOEY  ,Grocery,92.06,137.2,1.5 lbs,447,U.S.A.,Yes,6FH6F6
+PRD2106, laptop satnd,Electronics,298.59,429.34,6.6 lbs,373,England,1,00269E
+PRD2107,Notebook Set,Office Supplies,207.52,380.13,7.1 lbs,169,Britain,Yes,79E832
+PRD2108,Bluetooth Speaker,ELECTRONICS,215.53,$528.88,2.19 kg,319,RSA,No,DH7G30
+PRD2109,Hoodie  ,Apparel,185.82,390.64 USD,84g,119,USA,No,49EE4C
+PRD2110,SMARTPHONE CASE (NEW!),Electronics,cost:239.39,393.58,2.59,439,Nigeria,1,337DG6
+PRD2111,Stapler (New!),Office Supplies,251.17,421.33,56g,419,IN,,HD9G0C
+PRD2112,Running Shorts,Apparel,110.02,271.22,3.66,475,U.S.A.,yes,226HEH
+PRD2113,Desk Organizer,Office Supplies,173.29,266.31 USD,9.3 lbs,332,DE,No,FA8975
+PRD2114, STAPLER,Office Supplies,169.95,410.43,408g,467,France,0,FFE8D3
+PRD2115,Wool Sweater,Apparel,22.05,50.93,4.12 kg,-15,india,No,404GE5
+PRD2116,Stapelr,Office Supplies,84.77,NGN 298700.0,8.7 lbs,123,United Kingdom,0,2164HB
+PRD2117,Cotton T-Sihrt (New!),Apparel,162.31,306.17,480g,162,CA,Yes,GGCHB4
+PRD2118,Sandals  (New!),Footwear,111.62,243.02,348g,265,NG,Yes,DBAED6
+PRD2119,Yoga Mat,Sports & Outdoors,31.8,74.22,108g,335,Nigeria,No,CD6159
+PRD2120,Air Fryer,home & kitchen,63.26,92.08,2.52 kg,76,US,NO,38A116
+PRD2121,Cutlery Set,HOME & KITCHEN,269.6,424.4,261g,422,Brazil,yes,G2EG18
+PRD2122, Cookbook,Books,278.07,612.67,0.66,159,AU,NO,5D7F5B
+PRD2123,Olive Oil 1L,grocery,84.75,147.09,0.42,-3,united states,,3A41BD
+PRD2124,Wireless Earbuds (New!),Electronics,206.11,$437.47,1.89,133,CA,NO,CA0H89
+PRD2125,NOTBEOOK SET,OFFICE SUPPLIES,286.75,$679.17,6.9 lbs,78,BR,1,98365C
+PRD2126, Wool Sweater,Apparel,41.55,67.41,496g,107,Australia,,G2EGCD
+PRD2127,Protein Bar Box,GROCERY,200.06,394.79,2.79 kg,348,india,NO,8H28HH
+PRD2128,WATER BOTTLE,Sports & Outdoors,183.99,268.69,395g,135,AU,No,H359A3
+PRD2129,Usb-C Cable,Electronics,212.6,368.17,6.7 lbs,160,australia,Yes,8HC7A6
+PRD2130,Protein Bra Box  ,Grocery,231.6,552.41,3.99 kg,184,England,yes,DCFB80
+PRD2131,Self-Help Guide,Books,266.84,620.67,1.05 kg,250,DE,Yes,95292F
+PRD2132,Desk Organizer,Office Supplies,166.54,$219.94,4.2 lbs,14,nigeria,1,12FDG5
+PRD2133,Notebook Set,Office Supplies,145.93,242.95,3.7,496,Australia,1,3DE391
+PRD2134,HOODIE,Apparel,27.88,55.47,6.5 lbs,181,Britain,1,18A105
+PRD2135,Running Shoes,FOOTWEAR,4.18,7.66,5.4 lbs,312,Nigeria,No,BD301G
+PRD2136, Smartphone Case,Electronics,35.25,68.43,3.9 lbs,324,India,0,7E3297
+PRD2137,Leather Boots,Footwear,169.62,319.53,4.84 kg,464,Brazil,Yes,E7FE50
+PRD2138,Face Moisturizer,Beauty,126.51,189.77,2.83,484,IN,0,6AF76C
+PRD2139,RC Car (New!),Toys,65.3,93.42,2.18 kg,341,france,yes,01GEG1
+PRD2140,Runnign  Shorts (New!),Apparel,69.37,NGN 233399.0,2.02,267,CA,Yes,23CBF6
+PRD2141,Running Shorts,Apparel,222.7,$453.76,0.62 kg,-15,Deutschland,No,09DE9F
+PRD2142,Nno-Stick Pan (New!)  ,Home & Kitchen,17.42,€39.16,1.17 kg,78,Germany,No,A96DBD
+PRD2143,Coffee  Maker,home & kitchen,72.76,104.99 USD,126g,405,Nigeria,yes,90GGD8
+PRD2144, Sneakers,Footwear,136.92,212.2,0.33 kg,10,U.S.A.,No,GGHA22
+PRD2145,Shampoo,Beauty,126.46,270.92,454g,238,france,yes,1E5350
+PRD2146, Board Game,Toys,171.57,313.91,96g,303,germany,,D77F58
+PRD2147,DenimJ acket,Apparel,189.5,248.5,3.1 lbs,400,Bharat,yes,17B709
+PRD2148,Board Gmae,Toys,105.91,$234.4,266g,287,France,0,C1H528
+PRD2149,Denim  Jacket,Apparel,229.05,453.8,2.19,-1,Canada,NO,823F2C
+PRD2150, Blender  ,Home & Kitchen,8.06,18.6,3.3 lbs,466,South Africa,1,D69251
+PRD2151,Power Bank,Electronics,249.56,566.31,7.9 lbs,256,FR,No,0GH647
+PRD2152,Blender (New!),Home & Kitchen,18.04,24.06 USD,4.91,321,Brasil,NO,62993H
+PRD2153,Stpaler,Office Supplies,cost:239.27,475.31,2.9 lbs,148,Nigeria,yes,5B0H4B
+PRD2154,Non-Stick Pan (New!),Home & Kitchen,25.69,44.62,8.3 lbs,7,canada,Yes,F3G9HC
+PRD2155,Water Bottle,sports & outdoors,32.67,$74.58,3.33 kg,-2,Britain,,BEFFFG
+PRD2156,Shampoo,Beauty,132.72,316.49,1.1 lbs,15,England,,C17F51
+PRD2157,Running Shoes,Footwear,46.91,108.23,1.7 lbs,253,UK,0,CA1750
+PRD2158,water bottle,Sports & Outdoors,156.39,253.4,5.5 lbs,92,Brazil,yes,CG84F7
+PRD2159,Ballpoint Pens (12pk) (New!),office supplies,208.77,€291.62,4.86,423,CA,0,3E0HFC
+PRD2160,Stapler,Office Supplies,cost:22.7,56.61 USD,3.65 kg,199,Nigéria,,9HD333
+PRD2161,denim jacket,Apparel,280.81,$541.09,7.7 lbs,321,U.S.A.,1,0A238G
+PRD2162,Building Blocks  ,Toys,195.29,434.93,7.8 lbs,-8,NG,0,6A001B
+PRD2163,Ballpoint  Pens (12pk),Office Supplies,174.93,403.34,130g,464,France,0,A03BD3
+PRD2164,smartphon ecase,Electronics,53.36,69.93 USD,2.55,-13,Canada,No,BG9549
+PRD2165, SMARTPHONE CASE,Electronics,161.28,295.23,4.59 kg,-5,Brasil,yes,7E3G80
+PRD2166,Cookbook (New!),BOOKS,165.78,$357.42,4.56,472,RSA,yes,EE021B
+PRD2167,Shamopo,beauty,247.02,583.95,187g,120,AU,0,2H49FB
+PRD2168,BUILDING BLOCKS  ,Toys,195.61,394.27,1.8 lbs,-16,USA,,01069F
+PRD2169,Runnign Shorts,Apparel,280.7,€443.47,87g,308,U.K.,yes,645455
+PRD2170,Blneder,HOME & KITCHEN,cost:234.39,487.93 USD,1.05 kg,193,U.K.,NO,5HBDH7
+PRD2171,Powe rBank,Electronics,203.2,$402.92,2.03 kg,260,canada,,019524
+PRD2172,Building  Blocks,Toys,151.72,378.6,9.6 lbs,394,nigeria,1,BAC110
+PRD2173,Running Shoes (New!),Footwear,53.62,86.86,2.4 kg,-17,ZA,No,G4HA54
+PRD2174,Cookbook,Books,86.58,193.41,1.12,332,Brazil,,2F97D3
+PRD2175,ORGANIC HONEY  ,Grocery,233.68,550.69,4.82,142,FR,No,HB4GFA
+PRD2176,Self-Help Gudie,BOOKS,174.45,342.52,2.1 lbs,265,germany,0,912FC9
+PRD2177, Yoag Mat  ,Sports & Outdoors,123.26,180.3,461g,213,AU,No,BBFC09
+PRD2178,Board  Game,Toys,cost:57.54,85.46,3.16 kg,-15,India,1,05E0E8
+PRD2179,Coffee Maker  ,Home & Kitchen,71.67,173.03,1.8 lbs,441,Australia,0,D901HC
+PRD2180,Board  Game,Toys,92.12,199.82,3.52 kg,219,S. Africa,NO,C249D2
+PRD2181,Water Bottle,Sports & Outdoors,35.18,63.71 USD,10.0 lbs,24,Brazil,Yes,A8B9GH
+PRD2182,camping tent (new!),Sports & Outdoors,175.81,NGN 419833.0,0.65,-16,australia,0,E381CE
+PRD2183,Fiction Novel,Books,174.71,351.97,4.66,467,AU,Yes,F93239
+PRD2184,Wool Sweater,Apparel,289.57,611.21,6.3 lbs,135,DE,No,2CD0A0
+PRD2185, Cotton T-Shirt (New!),apparel,23.77,55.87,4.9 lbs,16,Germany,1,HA332A
+PRD2186,NON-STICK PAN (NEW!),Home & Kitchen,36.4,62.91 USD,426g,481,US,,604F22
+PRD2187,Snaekers (New!),Footwear,65.13,125.47 USD,2.5 lbs,148,USA,yes,534CDB
+PRD2188,Sunscreen SPF50 (New!),Beauty,230.26,301.29,3.56 kg,173,France,,DD8232
+PRD2189,Sneakers,Footwear,91.73,135.63,419g,173,CA,0,E45FED
+PRD2190,SMARTPHOEN CASE (NEW!),Electronics,252.46,344.81,1.4 lbs,221,FR,1,721GGA
+PRD2191,Shampoo,Beauty,255.12,609.46,4.17 kg,344,UK,Yes,003HA5
+PRD2192,Sandals,Footwear,50.8,€80.56,83g,212,india,yes,8A7D3D
+PRD2193,Running Shoes,FOOTWEAR,cost:84.02,157.15,189g,400,England,,EC8G8D
+PRD2194, cookbook,Books,115.7,244.23,3.44,237,ZA,0,3H21C6
+PRD2195,Shampoo,Beauty,89.12,NGN 214489.0,2.14 kg,287,NG,yes,E4E62F
+PRD2196,Water Bottle,Sports & Outdoors,71.11,132.76,8.3 lbs,491,india,NO,51213G
+PRD2197,Notebook Set (New!),Office Supplies,262.37,430.79,3.4 lbs,230,canada,No,791A17
+PRD2198, Green Tea Pack,Grocery,cost:12.44,22.65,2.31,197,ZA,yes,99E0E8
+PRD2199,Lipstick Set,Beauty,cost:8.66,15.95,447g,418,Nigéria,0,E5BD23
+PRD2200,LAPTOP STAND,Electronics,cost:92.32,153.67,9.1 lbs,73,CA,yes,4DH405
+PRD2201,COOKBOOK,Books,cost:138.25,268.34,3.41,176,India,0,0938GA
+PRD2202,RC Car (New!),Toys,206.12,NGN 733662.0,4.17,61,Brasil,1,EC0G48
+PRD2203,protein bar box (new!),Grocery,25.8,49.01,5.5 lbs,328,AU,0,EDFD3B
+PRD2204, Building Blocks,Toys,140.13,$198.05,8.3 lbs,143,germany,NO,019249
+PRD2205,Green Tea Pack,Grocery,264.04,343.61,2.51,-15,S. Africa,No,84GF58
+PRD2206,Leather Boots,Footwear,84.64,177.86 USD,0.55 kg,380,Nigéria,yes,33H24D
+PRD2207,Building  Blocks,Toys,241.14,545.42,1.1 lbs,283,Deutschland,NO,C71A19
+PRD2208,Camping Tent,Sports & Outdoors,49.89,€60.19,9.6 lbs,155,BR,,56357H
+PRD2209,CottonT -Shirt,Apparel,97.91,160.15,8.9 lbs,112,DE,No,0112B5
+PRD2210,Face Moisturizer,Beauty,cost:230.25,477.08 USD,1.4 lbs,150,canada,,9CH075
+PRD2211,Children's Storybook,Books,118.62,210.34,2.28,399,ZA,yes,A81929
+PRD2212,Running Shoes,Footwear,169.7,$237.89,3.1 lbs,64,U.K.,No,70F6AF
+PRD2213,Denim Jacket,Apparel,246.91,418.7,406g,133,CA,yes,12A9CH
+PRD2214,Board Game  ,Toys,209.96,415.98 USD,386g,267,canada,Yes,A31CED
+PRD2215,Dumbbell  Set  ,Sports & Outdoors,277.22,454.19,231g,284,USA,NO,EFB703
+PRD2216,Green Tea Pack,Grocery,32.89,72.3,3.88 kg,137,Brasil,0,CBA6FG
+PRD2217, Fiction Novel,Books,47.7,73.91,1.29,85,United States of America,Yes,824AFG
+PRD2218, SENAKERS (NEW!),footwear,177.47,$276.88,0.53 kg,-9,South Africa,1,C77594
+PRD2219,Desk rOganizer,Office Supplies,184.45,355.27,3.32 kg,222,U.K.,,D7BE1C
+PRD2220,Cotton T-Shirt  ,Apparel,46.09,88.25,2.34 kg,271,BR,yes,E94D9H
+PRD2221,Stpaler  ,Office Supplies,70.59,€106.04,133g,121,Nigéria,No,C0DHHG
+PRD2222, CAMPING TENT,Sports & Outdoors,296.85,473.77,4.4 lbs,158,Germany,yes,H9406H
+PRD2223, Organic Honey,grocery,81.18,$194.09,468g,382,Nigéria,yes,EGH279
+PRD2224,Snadals  ,FOOTWEAR,cost:268.1,NGN 785556.0,4.61,222,nigeria,yes,AD1A34
+PRD2225,Water Bottle,Sports & Outdoors,181.57,255.74,4.04 kg,55,United Kingdom,No,DG1G5B
+PRD2226,Face Moisturizer,Beauty,161.99,211.11,1.8 lbs,279,india,0,CHA2E5
+PRD2227,Slef-Help Guide,books,163.43,278.95,452g,208,USA,,15AAA6
+PRD2228,Board Gmae  ,toys,290.57,380.99,4.8 lbs,-18,United States,,24GE56
+PRD2229,Protein Bar oBx,Grocery,125.29,307.26,8.4 lbs,194,France,NO,9778C2
+PRD2230,Ballpoint Pens (12pk),Office Supplies,275.38,565.81,3.41 kg,285,RSA,1,B1D866
+PRD2231, USB-C Cable,Electronics,182.92,306.87,2.78 kg,49,IN,0,964816
+PRD2232,Notebook Set,Office Supplies,52.22,70.74 USD,4.23 kg,294,U.K.,Yes,9H8983
+PRD2233, Sandals,Footwear,153.24,381.47,4.56,432,BR,1,CB0AF2
+PRD2234,r ccar,Toys,284.12,511.37,190g,268,UK,No,2GEA21
+PRD2235,Sunscreen SPF05,Beauty,cost:209.02,423.79 USD,207g,430,U.K.,Yes,51GC42
+PRD2236,Running Shoes (New!)  ,Footwear,78.13,106.55,7.3 lbs,312,canada,0,988AC5
+PRD2237,Wool Sweater (New!),Apparel,183.62,399.97,0.3 kg,213,Australia,No,92593D
+PRD2238, Bluetooht Speaker,Electronics,130.42,255.69,2.7 kg,320,RSA,NO,DDC7H3
+PRD2239,Fiction  Novle,Books,cost:48.88,93.44,0.78 kg,262,nigeria,yes,427FA6
+PRD2240,Children's Storybook,Books,124.27,256.1,8.4 lbs,283,Deutschland,Yes,CGGB3A
+PRD2241,Cutlery Kit,Home & Kitchen,230.53,506.63,3.26,387,United States of America,1,FHBBG6
+PRD2242, sneakers (new!),Footwear,44.86,102.24,298g,386,United States,0,613C89
+PRD2243,Fac eMoisturizer,Beauty,297.53,456.32,172g,260,Australia,,031B81
+PRD2244,Notebook Set,Office Supplies,271.33,536.03,281g,477,France,yes,GCBFF4
+PRD2245,Face Moisturizer (New!),Beauty,253.33,570.64,4.3 lbs,1,Brasil,NO,GGE1FE
+PRD2246,BALLPOINT PENS (12PK)  ,office supplies,cost:234.42,478.72,1.87,217,CA,yes,8HG164
+PRD2247, Cutlery Set,Home & Kitchen,109.62,154.14,9.7 lbs,-13,Deutschland,Yes,C1CFFA
+PRD2248, Sandals,Footwear,cost:222.93,349.95,0.4,151,DE,NO,9CBAD9
+PRD2249,Building Blocsk,Toys,cost:220.67,323.43,99g,358,United Kingdom,0,E36ABH
+PRD2250,Blender,Home & Kitchen,98.52,196.4 USD,4.04,103,RSA,0,76879D

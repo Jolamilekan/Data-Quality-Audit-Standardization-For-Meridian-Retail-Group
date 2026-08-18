@@ -55,35 +55,37 @@ Inventory data mixed at least four currencies within a single price field, with 
 
 Prices were standardized to a single currency using documented conversion assumptions (see Limitations). Weight was standardized to kilograms where the recorded unit was identifiable; records with no unit specified were left unresolved rather than guessed, since an incorrect assumption here would materially distort weight-based reporting. Negative stock values were flagged and excluded from stock-level totals.
 
-![Standardized product records with data quality flags](Data_screenshots_after_Cleaning/inventory_product_clean%20data.png)
+![Standardized product records](Data_screenshots_after_Cleaning/inventory_product_clean%20data.png)
 
 ### Orders
 
 Order dates were recorded in at least six different formats, consistent with the storefront system logging dates differently depending on channel (web, mobile, marketplace, phone). A small number of orders referenced customers that do not exist anywhere in the CRM — likely test transactions or customers whose CRM records were since deleted. A separate, more significant issue was only discovered while validating relationships between tables: a portion of order records shared duplicate order identifiers, which would have caused transactions to be miscounted or misattributed had it gone unaddressed.
 
- ![Orders records prior to standardization](Data%20before%20Cleaning/orders_export_raw%20data.png)
+ ![Order dates before standardization, showing multiple formats](Data%20before%20Cleaning/orders_export_raw%20data.png)
 
 Dates were standardized to a single consistent format, with a small number of genuinely invalid entries (e.g., non-existent calendar dates) retained as unresolved rather than estimated. Orders referencing unrecognized customers were flagged rather than removed, since the transaction itself remains valid revenue regardless of whether the customer record can be matched. Duplicate order identifiers were resolved prior to finalizing the dataset.
 
-`![Order dates before standardization, showing multiple formats](screenshots/orders_before.png)`
+![Standardized orders records](Data_screenshots_after_Cleaning/orders_export_clean%20data.png)
 
 ### Order Line Items
 
 Line-level transaction data included a small number of impossible quantities (negative or zero units sold) and one notable outlier quantity warranting manual review rather than automatic correction - 999 stock quantity. Pricing fields mixed currency symbols directly into numeric values, and currency labeling was inconsistent across records. A number of line items referenced products that do not exist in the current inventory system, most likely discontinued or since-renamed products.
 
- ![Customer records prior to standardization](Data%20before%20Cleaning/orderlines_export_raw%20data.png)
+ ![Orderlines_items records prior to standardization](Data%20before%20Cleaning/orderlines_export_raw%20data.png)
 
 Invalid quantities were flagged and excluded from quantity-based totals; the outlier was flagged for business review rather than treated as an error, since it may represent a legitimate bulk order. Pricing and currency fields were cleaned and standardized. Line-item totals were recalculated from verified quantity and price data rather than trusting the originally recorded total, which had been calculated upstream before any validation occurred.
+
+![Standardized orderlines_items records](Data_screenshots_after_Cleaning/orderlines_export_clean%20data.png)
 
 ### Returns
 
 Return records showed the same date-format inconsistency seen in Orders, along with refund amounts recorded as negative values and some prefixed with currency symbols. A number of returns referenced orders that do not exist in the order system. Most significantly, cross-referencing return dates against their associated order dates revealed a subset of returns recorded as occurring *before* the corresponding order was placed — a logical impossibility only visible once the two systems were compared directly.
 
- ![Returns records prior to standardization](Data%20before%20Cleaning/returns_export_raw%20data.png)
+ ![Returns recorded before their associated order date](Data%20before%20Cleaning/returns_export_raw%20data.png)
 
 Refund amounts were corrected to reflect actual monetary value, and return reasons were standardized, with unspecified reasons labeled explicitly rather than left blank. Returns referencing unrecognized orders were flagged. The date-sequence issue was documented as a priority finding for the support systems team (see Recommendations).
 
-`![Returns recorded before their associated order date](screenshots/returns_logic_flag.png)`
+![Standardized returns_export records](Data_screenshots_after_Cleaning/returns_export_clean%20data.png)
 
 ### Marketing Campaigns
 
@@ -93,7 +95,7 @@ Campaign records mixed duration formats (days, weeks, and unlabeled numbers with
 
 Duration was standardized to a single day-count measure, and budget was standardized to a single currency. Missing impressions were preserved as unknown rather than assumed to be zero, since the two carry materially different meaning for campaign performance reporting.
 
----
+![Standardized campaign_export records](Data_screenshots_after_Cleaning/campaign_export_clean%20data.png)
 
 ## Executive Summary
 

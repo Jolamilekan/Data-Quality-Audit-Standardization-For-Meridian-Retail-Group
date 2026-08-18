@@ -75,7 +75,7 @@ Line-level transaction data included a small number of impossible quantities (ne
 
 Invalid quantities were flagged and excluded from quantity-based totals; the outlier was flagged for business review rather than treated as an error, since it may represent a legitimate bulk order. Pricing and currency fields were cleaned and standardized. Line-item totals were recalculated from verified quantity and price data rather than trusting the originally recorded total, which had been calculated upstream before any validation occurred.
 
-![Standardized orderlines_items records](Data_screenshots_after_Cleaning/orderlines_export_clean%20data.png)
+![Standardized orderlines_items records](Data_screenshots_after_Cleaning/orderlines_clean%20data.png)
 
 ### Returns
 
